@@ -1,5 +1,8 @@
 from django.conf.urls.defaults import *
 from django.conf.urls.defaults import patterns, include, url
+
+from views import hello, current_datetime
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -10,4 +13,8 @@ urlpatterns = patterns('',
     ('^$', 'django.views.generic.simple.direct_to_template',
      {'template': 'home.html'}),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^hello/$', hello),
+    url(r'^time/$', current_datetime),
+    url(r'^book/', include('books.urls')),
+    
 )
