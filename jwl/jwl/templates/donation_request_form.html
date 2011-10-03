@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Book Donation </title>
+</head>
+<body>
+    <h1>You want to donate a book</h1>
+
+	<h1>Please fill your details</h1>
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/book/donation/" method="post">
+    	{% csrf_token %}
+        <p>Your e-mail: <input type="text" name="email" value="{{ donater.email }}">
+        </p>
+        <p>Your name: <input type="text" name="name" value="{{ donater.name }}"></p>
+        <p>Contact No. (Mobile): <input type="text" name="telephone" value="{{ donater.telephone }}"></p>
+        <p>Book titles: <input type="text" name="books" value="{{ donater.books }}"></p>
+        <p>Other message: <input type="text" name="message" value="{{ donater.message }}"></p>
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% include 'foot.html' %}
+</body>
+</html>

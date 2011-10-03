@@ -1,0 +1,41 @@
+book details
+<table>
+<tr>
+	<td>{{ book.title }}</td>
+	<td>{{ book.authors }}</td>
+	<td>{{ book.publisher }}</td>
+	<td>{{ book.publication_date }}</td>
+	<td>
+		{{ book.availability }}
+		{% if book.availability %}
+			<a href="/book/{{ book.id }}/borrow">Available</a>
+		{% else %}
+			Not available
+		{% endif %}
+	</td>
+</tr>
+</table>
+
+donation details: if you know any guys here, why not ask them for help first, like photocopy?
+<table>
+{% for donation in book_donation %}
+<tr>
+	<td>{{ donation.donater }}</td>
+	<td>{{ donation.donate_date }}</td>
+</tr>
+{% endfor %}
+</table>
+
+***** need to display the borrow recrods here. 
+
+<table>
+{% for borrow in borrows %}
+<tr>
+	<td>{{ borrow.borrower }}</td>
+	<td>{{ borrow.from }}</td>
+	<td>{{ borrow.to }}</td>
+	<td>{{ borrow.status }}</td>
+</tr>
+{% endfor %}
+</table>
+

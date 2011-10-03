@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Borrow Book: {{ book.title }}</title>
+</head>
+<body>
+    <h1>You want to borrow a copy of this book</h1>
+<table>
+<tr>
+	<td>{{ book.title }}</td>
+	<td>{{ book.authors }}</td>
+	<td>{{ book.publisher }}</td>
+	<td>{{ book.publication_date }}</td>
+</tr>
+</table>
+
+
+	<h1>Please fill your details</h1>
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action="/book/{{ book.id }}/borrow/" method="post">
+    	{% csrf_token %}
+        <input type="hidden" name="book_id" value="{{ book.id }}">
+        <p>Your e-mail: <input type="text" name="email" value="{{ borrower.email }}">
+        (it must be official university email address which is ended with @nottingham.ac.uk or @nottingham.edu.cn)   	
+        </p>
+        <p>First name: <input type="text" name="first_name" value="{{ borrower.first_name }}"></p>
+        <p>Last name: <input type="text" name="last_name" value="{{ borrower.last_name }}"></p>
+        <p>Contact No. (Mobile): <input type="text" name="telephone" value="{{ borrower.telephone }}"></p>
+        <p>Study subject: <input type="text" name="subjects" value="{{ borrower.subjects }}"></p>
+        <p>Study in Nottingham from: <input type="text" name="study_period_from" value="{{ borrower.study_period_from }}"></p>
+        <p>Study in Nottingham to: <input type="text" name="study_period_to" value="{{ borrower.study_period_to }}"></p>
+        <p>Address: <textarea name="address" rows="10" cols="50">{{ borrower.address }}</textarea></p>
+        <input type="submit" value="Submit">
+    </form>
+    
+    {% include 'foot.html' %}
+</body>
+</html>

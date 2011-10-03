@@ -20,3 +20,43 @@ indexes:
 # manually, move them above the marker line.  The index.yaml file is
 # automatically uploaded to the admin console when you next deploy
 # your application using appcfg.py.
+
+- kind: books_author
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book_copies
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book_donater
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book_donation
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book_donation_request
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_book_donation_status
+  properties:
+  - name: __key__
+    direction: desc
+
+- kind: books_borrow_record
+  properties:
+  - name: __key__
+    direction: desc

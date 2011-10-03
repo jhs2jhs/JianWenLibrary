@@ -1,0 +1,17 @@
+
+<table>
+{% for book in books %}
+<tr>
+	<td>{{ book.title }}</td>
+	<td>{{ book.authors }}</td>
+	<td>{{ book.publisher }}</td>
+	<td>{{ book.publication_date }}</td>
+	<td><a href="/book/{{ book.id }}">Borrow it</a></td>
+	<td>
+	{% for donater in book.donaters %}
+		{{ donater.donater }}, 
+	{% endfor %}
+	</td>
+</tr>
+{% endfor %}
+</table>
