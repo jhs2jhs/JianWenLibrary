@@ -20,11 +20,6 @@ def test(request):
     return HttpResponse('hello')
 
 def test_mail(request):
-    '''server = smtplib.SMTP('smtp.gmail.com:587')
-    server.ehlo()
-    server.starttls()
-    server.ehlo()
-    server.login('jianhua.shao1986@gmail.com', 'DustinShao64805341')'''
     send_mail('Subject here', 'Here is the message.', 'psxjs4@nottingham.ac.uk',
     ['jianhua.shao1986@gmail.com'], fail_silently=False)
     #email = EmailMessage('Hello', 'World', to=['dustin.shaojianhua@gmail.com'])

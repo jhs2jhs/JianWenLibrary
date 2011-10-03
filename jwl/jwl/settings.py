@@ -49,9 +49,3 @@ ADMIN_MEDIA_PREFIX = '/media/admin/'
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates'),)
 
 ROOT_URLCONF = 'urls'
-
-'''EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'jianhua.shao1986@gmail.com'
-EMAIL_HOST_PASSWORD = 'DustinShao64805341'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True'''
