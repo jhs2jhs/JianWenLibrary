@@ -10,3 +10,4 @@ jwl/jwl/django/*
 jwl/jwl/djangoappengine/*
 jwl/jwl/djangotoolbox/*
 wl/jwl/.gaedata/*
+jwl/jwl/.gaedata/datastore
