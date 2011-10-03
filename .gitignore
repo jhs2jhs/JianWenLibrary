@@ -1,0 +1,11 @@
+*.pyc
+
+.metadata/*
+
+JianWenLibrary/*
+
+jwl/jwl/autoload/*
+jwl/jwl/dbindexer/*
+jwl/jwl/django/*
+jwl/jwl/djangoappengine/*
+jwl/jwl/djangotoolbox/*
