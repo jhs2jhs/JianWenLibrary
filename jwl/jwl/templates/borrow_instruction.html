@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+Borrow instructions
+
+Could you please forward following information to borrower?
+You can write email to this address wenwen.bao1203@gmail.com 
+or you can contact them with this number. They will contact you as soon as possible. 
+You need to tell them your information like:
+Email address
+First name
+Last name
+Telephone
+Address
+Study subject
+When your study started
+When your study will be end
+Expected return date (no longer than one month)
+
+You can either collect the books form our home or form Jubilee Campus. 
+
+You need to bring deposit of £{{ book.selling_price }} as the book price. We would sign the proof when you collect the books. 
+
+<table>
+<tr>
+	<th>ID</th>
+	<th>Title</th>
+	<th>Author</th>
+	<th>Publisher</th>
+	<th>Publication Date</th>
+	<th>Price in ££</th>
+	<th>Availability for borrowing</th>
+</tr>
+<tr>
+	<td>{{ book.id }}</td>
+	<td>{{ book.title }}</td>
+	<td>{{ book.authors }}</td>
+	<td>{{ book.publisher }}</td>
+	<td>{{ book.publication_date }}</td>
+	<td>{{ book.selling_price }}</td>
+	<td>{{ book.availability }} copies available to borrow</td>
+</tr>
+</table>
+
+</body>
+</html>

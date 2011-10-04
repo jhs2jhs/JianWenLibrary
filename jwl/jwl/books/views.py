@@ -56,9 +56,10 @@ def borrow_record_context(book):
     borrows = []
     borrow_records = book.borrow_record_set.all()
     for borrow_record in borrow_records:
-        borrow_status = book_borrow_record(borrow_record, borrow_status_string.WAITING_FOR_RETURN)
+        borrow_status_1 = book_borrow_record(borrow_record, borrow_status_string.WAITING_FOR_RETURN)
+        borrow_status_2 = book_borrow_record(borrow_record, borrow_status_string.RETURNED)
         #borrow_status = True
-        if (borrow_status == True):
+        if (borrow_status_1 == True or borrow_status_2 == True):
             borrow = {
                 "borrower":borrow_record.borrower,
                 "from":borrow_record.borrow_date,
@@ -94,15 +95,17 @@ def book_context(book):
         book_donations_c.append(book_donation_c)
     book_borrowed = book_borrowed_count(book)
     book_available = book_total - book_borrowed
-    if (book_available > 0):
+    '''if (book_available > 0):
         book_availability  = True
     else:
-        book_availability = False
+        book_availability = False'''
+    book_availability = book_available 
     book_context = {
         "id": book.id,
         "title": book.title,
         "publisher": book.publisher.name,
         "publication_date": book.publication_date,
+        "selling_price": book.selling_price,
         "authors":author_html,
         "donaters":book_donations_c, 
         "availability": book_availability
@@ -230,7 +233,7 @@ def donation_request(request):
                 body=
                     "You just recently donate books with title ("+
                     request.POST.get('books', '')+"). "+
-                    "Library volunteers will contact you soon to collect books. "+
+                    "\nLibrary volunteers will contact you soon to collect books. "+
                     "\nThanks very much "+
                     "\nJianWenLibrary",
                 from_email='wenwen.bao1203@gmail.com',
@@ -264,3 +267,10 @@ def donation_request(request):
 
 def donation_result(request):
     return render_to_response('donation_result.html')
+
+
+def borrow_instruction(request, book_id):
+    book = Book.objects.get(id=book_id)
+    book_c = book_context(book)
+    context = {"book":book_c}
+    return render_to_response('borrow_instruction.html', context)

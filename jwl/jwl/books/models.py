@@ -54,9 +54,9 @@ class Book_donation_request(models.Model):
         return r''+self.donater_email
 
 class Book_donation_status(models.Model):
-    donation_status = models.CharField(max_length=30)
+    donation_status = models.CharField(max_length=100)
     def __unicode__(self):
-        return r''+self.status
+        return r''+self.donation_status
     
     
 class Book_donation(models.Model):

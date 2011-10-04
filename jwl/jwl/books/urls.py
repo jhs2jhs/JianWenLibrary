@@ -15,8 +15,8 @@ urlpatterns = patterns('books.views',
     # book
     url('^$', 'display_books'),
     url('^(?P<book_id>\d*)/$', 'display_book_by_id'),
-    url('^(?P<book_id>\d*)/borrow/$', 'borrow_book_by_id'),
-    url('^(?P<book_id>\d*)/borrow/request_result$', 'borrow_result_by_id'),
+    url('^(?P<book_id>\d*)/borrow/$', 'borrow_instruction'),
+    #url('^(?P<book_id>\d*)/borrow/request_result$', 'borrow_result_by_id'),
     
     # donation
     url('^donation/$', 'donation_request'),

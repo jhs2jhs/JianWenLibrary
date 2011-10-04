@@ -1,16 +1,24 @@
 book details
 <table>
 <tr>
+	<th>Title</th>
+	<th>Author</th>
+	<th>Publisher</th>
+	<th>Publication Date</th>
+	<th>Price in ££</th>
+	<th>Availability for borrowing</th>
+</tr>
+<tr>
 	<td>{{ book.title }}</td>
 	<td>{{ book.authors }}</td>
 	<td>{{ book.publisher }}</td>
 	<td>{{ book.publication_date }}</td>
+	<td>{{ book.selling_price }}</td>
 	<td>
-		{{ book.availability }}
-		{% if book.availability %}
-			<a href="/book/{{ book.id }}/borrow">Available</a>
+		{% if book.availability > 0 %}
+			<a href="/book/{{ book.id }}/borrow">{{ book.availability }} copies available to borrow</a>
 		{% else %}
-			Not available
+			All copies are in borrowing
 		{% endif %}
 	</td>
 </tr>
