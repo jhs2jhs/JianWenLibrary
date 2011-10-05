@@ -27,3 +27,7 @@ def welcome_request(request):
             return HttpResponseRedirect('/book/donation')
         if request.POST.get('admin'):
             return HttpResponseRedirect('/admin/')
+        
+        
+def contact(request):
+    return render_to_response('contact.html') 

@@ -1,14 +1,68 @@
-Here is the complete book list in Jian&Wen Library
+{% extends 'mybase.html' %}
 
-<table>
+{% block css %}
+<style type="text/css">
+.column_odd {
+background:#EEE
+}
+
+tbody {
+display: table-row-group;
+vertical-align:middle;
+border-color:inherit;
+}
+
+#book_list_table {
+border-collapse:collapse;
+text-align:left;
+border-left:1px solid #69c;
+border-right:1px solid #69c;
+}
+#book_list_table tbody tr:hover td{
+background:#D0DAFD;
+}
+#book_list_table td{
+border-bottom: 1px solid #C0C0C0;
+padding-right: 4px;
+}
+.column-emphesis {
+background:yellow
+}
+
+thead {
+background: whiteSmoke;
+border-bottom: 2px solid #6678B1;
+}
+</style>
+{% endblock %}
+
+{% block title %}Book list{% endblock %}
+
+{% block content %}
+<div class="items_content">
+<div class="item">
+<h1>Complete books list in Jian&Wen Library</h1>
+<p>
+<table id="book_list_table">
+<colgroup>
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+</colgroup>
+<thead>
 <tr>
 	<th>Title</th>
 	<th>Author</th>
 	<th>Publisher</th>
-	<th>Publication Date</th>
+	<th>Publication</th>
 	<th>Donaters</th>
 	<th>Detail</th>
-</tr>
+<tr>
+</thead>
+<tbody>
 {% for book in books %}
 <tr>
 	<td>{{ book.title }}</td>
@@ -20,7 +74,12 @@ Here is the complete book list in Jian&Wen Library
 		{{ donater.donater }}, 
 	{% endfor %}
 	</td>
-	<td><a href="/book/{{ book.id }}">Borrow it</a></td>
+	<td class='column-emphesis'><a href="/book/{{ book.id }}">Borrow</a></td>
 </tr>
 {% endfor %}
+</tbody>
 </table>
+</p>
+</div>
+</div>
+{% endblock %}

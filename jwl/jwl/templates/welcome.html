@@ -1,23 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-Welcome to Jian&Wen Library. It is a free and volunteery library for students in Nottingham. 
-<br>
-For management, we only allow a person to borrow a book for no more than one month. 
-To prevent book missing, we would reserve the deposite as book price, we will return the deposit when you return the book. 
-We would also. 
-<div>
-<form action="welcome/request" method="post">
-Choose your action
-<input type="submit" name="view_borrow" value="View books lists & borrow it">
-<input type="submit" name="books_donation" value="Books donation">
-<input type="submit" name="admin" value="Library administration">
-</form>
+{% extends 'mybase.html' %}
+
+{% block css %}
+<style type="text/css">
+.gxf {
+display:block;
+text-align:left;
+color:#333;
+}
+.gxf a {
+background: whiteSmoke url("http://farm7.static.flickr.com/6220/6212075947_01e4254123_z.jpg") no-repeat;
+display: block;
+height: 300px;
+}
+</style>
+{% endblock %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block head_image %}
+<div class="gxf">
+<a href="">
+<span></span>
+</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="items_content">
+<div class="item">
+	<h1>About</h1>
+	<p>
+Jian&Wen Library is initialised by a couple of PhD students who are studying in the University of Nottingham, UK. 
+It is a voluntary library providing completely free service for book borrowing and management in Nottingham. 
+The volunteers in the library donated their used books into library and are spending their spare time to operate the library. 
+The library is also accepting book donations from anyone. To make library running smooth, long term borrowing is not permit at present. 
+The library would also dynamic adapt borrowing time by fiting to condition in relevent to exmiation peak time. 
+Although borrowing is complete free, borrowers are request to save a deposit to demonstrate they will take care the book,
+they will get exact deposit back when they return the book. With limitation on time, we developed system from basic functions.
+Any recommendations are warmly welcome from you.  
+</p><p>
+那是2011年的初秋，诺丁汉稍许有了些凉意， 一拨接一波的学弟学妹欢欣雀跃得向学长们宣告新学期的开始。
+一对在诺丁汉的博士们，不免浮想起了他们曾经苦逼的本科生活。
+曾经的他们也曾信誓旦旦， 也曾精简节约， 但是书， 不错就是书，让他们的青葱岁月一直苦逼。
+英国的书就好比这几年中国的猪肉，价格嗷嗷的高，扁扁的钱包让他们望而退却。可是为了更好的建设祖国四化， 学生学习得用书。 
+当年的他们尝试着去图书馆借书度日， 可是总有人比他们下手太快。回想起那段苦逼的本科生涯， 热爱学习的他们心中不免战战兢兢。
+于是他们筹建了“建&雯图书馆”， 这时一个专为诺丁汉中国学子开设的免费图书馆， 让学生生涯不在因为书而苦逼。 
+他们将自己手头的书贡献出来， 免费让学弟学妹借阅。 他们也强烈欢迎欢迎他人捐赠书， 他们做免费的管理和运作。 
+博士们都来自UNNC， 都对UNNC有一份特殊的情谊， 所以请允许他们对来自UNNC的学弟学妹有所倾向。
+由于时间有限， 目前只开发最简单功能， 图书馆自愿者需要做部分手动工作。
+为了让大部分人先不苦逼起来， 不允许长期借阅， 考试期间也会对检阅期限做动态调节。
+为了保证借阅连续性，借阅时需要递交保证金，当然按期规划图书时保证金如数奉还。
+如果您不小心也胡思乱想， 有了建议一定要告诉我们， 因为您的建议也许可以直接避免他人的苦逼。
+	</p>
+</div>
 </div>
 
-</body>
-</html>
+{% endblock %}

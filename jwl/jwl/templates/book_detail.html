@@ -1,19 +1,79 @@
-book details
+{% extends 'mybase.html' %}
+
+{% block css %}
+<style type="text/css">
+.column_odd {
+background:#EEE
+}
+
+tbody {
+display: table-row-group;
+vertical-align:middle;
+border-color:inherit;
+}
+
+#book_list_table {
+border-collapse:collapse;
+text-align:left;
+border-left:1px solid #69c;
+border-right:1px solid #69c;
+}
+#book_list_table tbody tr:hover td{
+background:#D0DAFD;
+}
+#book_list_table td{
+border-bottom: 1px solid #C0C0C0;
+padding-right: 4px;
+}
+.column-emphesis {
+background:yellow
+}
+
+thead {
+background: whiteSmoke;
+border-bottom: 2px solid #6678B1;
+}
+
+table {
+width:100%;
+}
+</style>
+{% endblock %}
+
+{% block title %}Book detail{% endblock %}
+
+{% block content %}
+<div class="items_content">
+<div class="item">
+<h1>Check the availability of the book you want to borrow </h1>
+<p>The deposite you need to have is the price of this book: &#163;{{ book.selling_price }}</p>
+<p>
 <table>
+<colgroup>
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+</colgroup>
+<thead>
 <tr>
 	<th>Title</th>
 	<th>Author</th>
 	<th>Publisher</th>
 	<th>Publication Date</th>
-	<th>Price in ££</th>
+	<th>Price in &#163;&#163;</th>
 	<th>Availability for borrowing</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 	<td>{{ book.title }}</td>
 	<td>{{ book.authors }}</td>
 	<td>{{ book.publisher }}</td>
 	<td>{{ book.publication_date }}</td>
-	<td>{{ book.selling_price }}</td>
+	<td class="column-emphesis">{{ book.selling_price }}</td>
 	<td>
 		{% if book.availability > 0 %}
 			<a href="/book/{{ book.id }}/borrow">{{ book.availability }} copies available to borrow</a>
@@ -22,28 +82,74 @@ book details
 		{% endif %}
 	</td>
 </tr>
+</tbody>
 </table>
+</p>
+</div>
 
-donation details: if you know any guys here, why not ask them for help first, like photocopy?
+<div class="item">
+<h1>The donation records of this book</h1>
+<p>
+Thanks very much for those people to donate. 
+If you know any of them, you may consider to contact as they may have photocopies of the chapters you want to read.
+<p>
 <table>
+<colgroup>
+	<col class="column_odd" />
+	<col class="column_even" />
+</colgroup>
+<thead>
+<tr>
+	<th>Donater's name</th>
+	<th>Donation date</th>
+</tr>
+</thead>
+<tbody>
 {% for donation in book_donation %}
 <tr>
-	<td>{{ donation.donater }}</td>
+	<td class="column-emphesis">{{ donation.donater }}</td>
 	<td>{{ donation.donate_date }}</td>
 </tr>
 {% endfor %}
+</tbody>
 </table>
+</p>
+</div>
 
-***** need to display the borrow recrods here. 
-
+<div class="item">
+<h1>People who borrowed before or are borrowing this book at present</h1>
+<p>
+If you know any of them, you may consider to contact as they may have photocopies of the chapters you want to read.
+</p>
+<p>
 <table>
+<colgroup>
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+</colgroup>
+<thead>
+<tr>
+	<th>Borrower's name</th>
+	<th>Borrow from when</th>
+	<th>Borrow to when</th>
+	<th>Borrow status</th>
+</tr>
+</thead>
+<tbody>
 {% for borrow in borrows %}
 <tr>
-	<td>{{ borrow.borrower }}</td>
+	<td class="column-emphesis">{{ borrow.borrower }}</td>
 	<td>{{ borrow.from }}</td>
 	<td>{{ borrow.to }}</td>
 	<td>{{ borrow.status }}</td>
 </tr>
 {% endfor %}
+</tbody>
+</tbody>
 </table>
-
+</p>
+</div>
+</div>
+{% endblock %}

@@ -1,51 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+{% extends 'mybase.html' %}
 
-Borrow instructions
+{% block css %}
+<style type="text/css">
+.column_odd {
+background:#EEE
+}
 
-Could you please forward following information to borrower?
-You can write email to this address wenwen.bao1203@gmail.com 
-or you can contact them with this number. They will contact you as soon as possible. 
-You need to tell them your information like:
-Email address
-First name
-Last name
-Telephone
-Address
-Study subject
-When your study started
-When your study will be end
-Expected return date (no longer than one month)
+tbody {
+display: table-row-group;
+vertical-align:middle;
+border-color:inherit;
+}
 
-You can either collect the books form our home or form Jubilee Campus. 
+#book_list_table {
+border-collapse:collapse;
+text-align:left;
+border-left:1px solid #69c;
+border-right:1px solid #69c;
+}
+#book_list_table tbody tr:hover td{
+background:#D0DAFD;
+}
+#book_list_table td{
+border-bottom: 1px solid #C0C0C0;
+padding-right: 4px;
+}
+.column-emphesis {
+background:yellow
+}
 
-You need to bring deposit of £{{ book.selling_price }} as the book price. We would sign the proof when you collect the books. 
+thead {
+background: whiteSmoke;
+border-bottom: 2px solid #6678B1;
+}
 
+table {
+width:100%;
+}
+</style>
+{% endblock %}
+
+{% block title %}Borrow{% endblock %}
+
+{% block content %}
+<div class="items_content">
+<div class="item">
+<h1>Borrow instruction</h1>
+<p>
+You need to inform <a href="/contact/">library volunteer operators</a> about your borrow request. 
+They will contact either on email or mobile as soon as possible. 
+You can arrange to collect the books either form <a href="/contact/">library storage</a> or form Jubilee Campus. 
+You need to bring deposit of &#163;{{ book.selling_price }} as the book price. 
+We would sign the paper proof when you collect the books so it will guarantee to return the deposit when you return the book. 
+</p>
+<p>
+Could you please forward following information about you 
+to <a href="mailto:wenwen.bao1203@gmail.com">wenwen.bao1203@gmail.com</a>
+The information you need to inform includes:
+<ol>
+<li>Email address</li>
+<li>First name</li>
+<li>Last name</li>
+<li>Telephone</li>
+<li>Address</li>
+<li>Study subject or course</li>
+<li>When your study started</li>
+<li>When your study will be end</li>
+<li>Expected return date (no longer than one month)</li>
+<li>Following table about book:</li>
+</ol>
+</p>
+
+<p>
 <table>
+<colgroup>
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+	<col class="column_even" />
+	<col class="column_odd" />
+</colgroup>
+<thead>
 <tr>
 	<th>ID</th>
 	<th>Title</th>
 	<th>Author</th>
 	<th>Publisher</th>
 	<th>Publication Date</th>
-	<th>Price in ££</th>
+	<th>Price in &#163;&#163;</th>
 	<th>Availability for borrowing</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 	<td>{{ book.id }}</td>
 	<td>{{ book.title }}</td>
 	<td>{{ book.authors }}</td>
 	<td>{{ book.publisher }}</td>
 	<td>{{ book.publication_date }}</td>
-	<td>{{ book.selling_price }}</td>
+	<td class="column-emphesis">{{ book.selling_price }}</td>
 	<td>{{ book.availability }} copies available to borrow</td>
 </tr>
+</tbody>
 </table>
-
-</body>
-</html>
+<p>
+</div>
+</div>
+{% endblock %}

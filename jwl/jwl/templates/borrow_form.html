@@ -1,8 +1,11 @@
-<html>
-<head>
-    <title>Borrow Book: {{ book.title }}</title>
-</head>
-<body>
+{% extends 'mybase.html' %}
+
+{% block css %}
+{% endblock %}
+
+{% block title %}Borrow Book: {{ book.title }}{% endblock %}
+
+{% block content %}
     <h1>You want to borrow a copy of this book</h1>
 <table>
 <tr>
@@ -38,7 +41,4 @@
         <p>Address: <textarea name="address" rows="10" cols="50">{{ borrower.address }}</textarea></p>
         <input type="submit" value="Submit">
     </form>
-    
-    {% include 'foot.html' %}
-</body>
-</html>
+{% endblock %}

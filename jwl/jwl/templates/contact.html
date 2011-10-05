@@ -1,0 +1,50 @@
+{% extends 'mybase.html' %}
+
+{% block css %}
+<style type="text/css">
+.gxf {
+display:block;
+text-align:left;
+color:#333;
+}
+.gxf a {
+background: whiteSmoke url("http://farm7.static.flickr.com/6232/6212487685_5f2367422f_z.jpg") no-repeat;
+display: block;
+height: 280px;
+}
+</style>
+{% endblock %}
+
+{% block title %}Contac us{% endblock %}
+{% block head_image %}
+<div class="gxf">
+<a href="">
+<span></span>
+</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div id="items_content">
+<div class="item">
+	<h1>Wenwen Bao</h1>
+	<p>She is voluntering in daily operation and maintenance</p> 
+	<p>She is a PhD in Computer Science and always around Jubilee Campus</p>
+	<p>She can be contacted by email:<a href="mailto:wenwen.bao1203@gmail.com">wenwen.bao1203@gmail.com</a>
+	<p>She can also be contacted by mobile: 07403034389</a>
+</div>
+<div class="item">
+	<h1>Jianhua Shao</h1>
+	<p>He is voluntering in daily operation and maintenance</p> 
+	<p>He is a PhD in Digital Economy and always around Jubilee Campus</p>
+	<p>He can be contacted by email:<a href="mailto:jianhua.shao1986@gmail.com">jianhua.shao1986@gmail.com</a>
+	<p>He can also be contacted by mobile: 07525156454</a>
+</div>
+<div class="item">
+	<h1>You</h1>
+	<p>We know you will be one of us in the future...</p> 
+	<p><img src="http://worldwideconspiracy.co.uk/media/WE-NEED-YOU.jpg" /></p>
+</div>
+</div>
+
+{% endblock %}
