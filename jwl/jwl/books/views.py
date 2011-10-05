@@ -106,6 +106,7 @@ def book_context(book):
         "publisher": book.publisher.name,
         "publication_date": book.publication_date,
         "selling_price": book.selling_price,
+        "url": book.url,
         "authors":author_html,
         "donaters":book_donations_c, 
         "availability": book_availability

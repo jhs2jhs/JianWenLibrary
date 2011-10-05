@@ -24,6 +24,8 @@ background:#D0DAFD;
 #book_list_table td{
 border-bottom: 1px solid #C0C0C0;
 padding-right: 4px;
+margin-left:auto;
+margin-right:auto;
 }
 .column-emphesis {
 background:yellow
@@ -37,6 +39,15 @@ border-bottom: 2px solid #6678B1;
 table {
 width:100%;
 }
+
+img {
+width:130px;
+}
+
+td {
+border-collapse:collapse;
+border-bottom: 1px solid #C0C0C0;
+}
 </style>
 {% endblock %}
 
@@ -49,40 +60,47 @@ width:100%;
 <p>The deposite you need to have is the price of this book: &#163;{{ book.selling_price }}</p>
 <p>
 <table>
-<colgroup>
-	<col class="column_odd" />
-	<col class="column_even" />
-	<col class="column_odd" />
-	<col class="column_even" />
-	<col class="column_odd" />
-	<col class="column_even" />
-</colgroup>
-<thead>
 <tr>
-	<th>Title</th>
-	<th>Author</th>
-	<th>Publisher</th>
-	<th>Publication Date</th>
-	<th>Price in &#163;&#163;</th>
-	<th>Availability for borrowing</th>
-</tr>
-</thead>
+	<td align="center"><a href="{{ book.url }}"><img src="{{ book.url }}"></img></a></td>
+	<td><table>
 <tbody>
 <tr>
+	<td>Title</th>
 	<td>{{ book.title }}</td>
+</tr>
+<tr>
+	<td>Author</th>
 	<td>{{ book.authors }}</td>
+</tr>
+<tr>
+	<td>Publisher</th>
 	<td>{{ book.publisher }}</td>
+</tr>
+<tr>
+	<td>Publication</th>
 	<td>{{ book.publication_date }}</td>
-	<td class="column-emphesis">{{ book.selling_price }}</td>
-	<td>
-		{% if book.availability > 0 %}
+</tr>
+<tr>
+	<td>Book Price</th>
+	<td class="column-emphesis">&#163;{{ book.selling_price }}</td>
+</tr>
+<tr>
+	<td>Availability</th>
+	<td class="column-emphesis">
+		{% if book.availability = 1 %}
+			<a href="/book/{{ book.id }}/borrow">{{ book.availability }} copy available to borrow</a>
+		{% endif %}
+		{% if book.availability > 1 %}
 			<a href="/book/{{ book.id }}/borrow">{{ book.availability }} copies available to borrow</a>
-		{% else %}
+		{% endif %}
+		{% if book.availability < 1 %}
 			All copies are in borrowing
 		{% endif %}
 	</td>
 </tr>
 </tbody>
+	</table></td>
+</tr>
 </table>
 </p>
 </div>

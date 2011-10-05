@@ -60,3 +60,8 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: books_borrow_status
+  properties:
+  - name: __key__
+    direction: desc

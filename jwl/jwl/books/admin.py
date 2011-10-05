@@ -21,7 +21,7 @@ class BookDonaterAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'email', 'telephone', 'address')
 
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('title', 'publisher', 'publication_date', 'default_availability', 'selling_price')
+    list_display = ('title', 'publisher', 'publication_date', 'default_availability', 'selling_price', 'url')
 
 class BookDonationRequestAdmin(admin.ModelAdmin):
     list_display = ('donater_email', 'donater_telephone', 'donater_name', 'donater_books', 'donater_message', 'request_process')
