@@ -20,6 +20,8 @@ urlpatterns = patterns('books.views',
     
     # donation
     url('^donation/$', 'donation_request'),
+    url('^donation/list/$', 'donaters_list'),
+    url('^donation/list/(?P<donater_id>\d*)/$', 'donater_list'),
     url('^donation_result/$', 'donation_result'),
 )
 

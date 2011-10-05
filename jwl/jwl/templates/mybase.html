@@ -86,18 +86,36 @@ height:25px;
 text-decoration: none;
 cursor:auto;
 text-align:center;
-
 }
 #button_book {
-background-color:yellow;
-}
-#button_donation {
 background-color:yellow;
 }
 #button_admin {
 background-color:yellow;
 }
 #button_contact {
+background-color:yellow;
+}
+
+.donation_button {
+display:block;
+background: #EEE;
+border-top: 1px solid #E5E5E5;
+border-bottom: 1px solid #E5E5E5;
+border-right: 2px solid #E5E5E5;
+color: #888;
+float: left;
+padding-top:4px;
+width:177px;
+height:25px;
+text-decoration: none;
+cursor:auto;
+text-align:center;
+}
+#button_donation_request {
+background-color:yellow;
+}
+#button_donation_list {
 background-color:yellow;
 }
 
@@ -121,6 +139,9 @@ margin: 3px 0 6px;
 color: #666;
 }
 
+table {
+width:100%;
+}
   	</style>
 	
     {% block css %}
@@ -140,7 +161,8 @@ color: #666;
 <div id="welcome_buttons">
 <span id="jianwenlibrary">Jian&Wen<br>Library</span>
 <a id="button_book" class="welcome_button" href="/book/">View books lists & borrow books</a>
-<a id="button_donation" class="welcome_button" href="/book/donation/">Books donation</a>
+<a id="button_donation_request" class="donation_button" href="/book/donation/">Books donation</a>
+<a id="button_donation_list" class="donation_button" href="/book/donation/list">Donaters list</a>
 <a id="button_admin" class="welcome_button" href="/admin/">Library administration</a>
 <a id="button_contact" class="welcome_button" href="/contact/">Contact us</a>
 </div>

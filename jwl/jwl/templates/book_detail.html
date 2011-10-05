@@ -125,7 +125,7 @@ If you know any of them, you may consider to contact as they may have photocopie
 <tbody>
 {% for donation in book_donation %}
 <tr>
-	<td class="column-emphesis">{{ donation.donater }}</td>
+	<td class="column-emphesis"><a href="/book/donation/list/{{ donation.donater_id }}/" >{{ donation.donater }}</a></td>
 	<td>{{ donation.donate_date }}</td>
 </tr>
 {% endfor %}

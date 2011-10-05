@@ -36,6 +36,7 @@ def book_donation_context(book_donation):
     book_context = {
         "donater": donaters_html,
         "donate_date": book_donation.donate_date,
+        "donater_id": book_donation.donater.id,
         }
     return book_context
 
@@ -275,3 +276,48 @@ def borrow_instruction(request, book_id):
     book_c = book_context(book)
     context = {"book":book_c}
     return render_to_response('borrow_instruction.html', context)
+
+
+def donater_context(donater):
+    book_donations = donater.book_donation_set.all()
+    copies = len(book_donations)
+    donater_context = {
+        "id": donater.id,
+        "name": donater.first_name+" "+donater.last_name,
+        "copies": copies,
+        }
+    return donater_context
+
+def donaters_list(request):
+    donaters_c = []
+    donaters = Book_donater.objects.all()
+    for donater in donaters:
+        donater_c = donater_context(donater)
+        donaters_c.append(donater_c)
+    context = {"donaters":donaters_c}
+    return render_to_response('donaters_list.html', context)
+
+def donation_context(donation):
+    donation_c = {
+        "donater_id": donation.donater.id,
+        "donater_name": donation.donater.first_name+" "+donation.donater.last_name,
+        "book_title":donation.book.title,
+        "book_id":donation.book.id,
+        "book_price":donation.book.selling_price,
+        "book_url":donation.book.url,
+        "donated_date":donation.donate_date,
+        }
+    return donation_c
+    
+def donater_list(request, donater_id):
+    donater = Book_donater.objects.get(id=donater_id)
+    donater_c = {
+        "name": donater.first_name+" "+donater.last_name,
+        }
+    donations_c = []
+    donations = donater.book_donation_set.all()
+    for donation in donations:
+        donation_c = donation_context(donation)
+        donations_c.append(donation_c)
+    context = {"donater":donater_c, "donations":donations_c}
+    return render_to_response('donater_list.html', context)

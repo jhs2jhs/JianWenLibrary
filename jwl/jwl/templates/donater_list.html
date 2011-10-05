@@ -36,12 +36,12 @@ border-bottom: 2px solid #6678B1;
 </style>
 {% endblock %}
 
-{% block title %}Book list{% endblock %}
+{% block title %}Donater({{ donater.name }}):{% endblock %}
 
 {% block content %}
 <div class="items_content">
 <div class="item">
-<h1>Complete books list in Jian&Wen Library</h1>
+<h1>Donation records for: {{ donater.name }}</h1>
 <p>
 <table id="book_list_table">
 <colgroup>
@@ -49,32 +49,22 @@ border-bottom: 2px solid #6678B1;
 	<col class="column_even" />
 	<col class="column_odd" />
 	<col class="column_even" />
-	<col class="column_odd" />
-	<col class="column_even" />
 </colgroup>
 <thead>
 <tr>
-	<th>Title</th>
-	<th>Author</th>
-	<th>Publisher</th>
-	<th>Publication</th>
-	<th>Donaters</th>
-	<th>Detail</th>
+	<th>Donater name</th>
+	<th>Book title</th>
+	<th>Selling price</th>
+	<th>Donated date</th>
 <tr>
 </thead>
 <tbody>
-{% for book in books %}
+{% for donation in donations %}
 <tr>
-	<td>{{ book.title }}</td>
-	<td>{{ book.authors }}</td>
-	<td>{{ book.publisher }}</td>
-	<td>{{ book.publication_date }}</td>
-	<td>
-	{% for donater in book.donaters %}
-		<a href="/book/donation/list/{{ donater.donater_id }}/" >{{ donater.donater }}</a>, 
-	{% endfor %}
-	</td>
-	<td class='column-emphesis'><a href="/book/{{ book.id }}">Borrow</a></td>
+	<td>{{ donation.donater_name }}</td>
+	<td><a href='/book/{{ donation.book_id }}'>{{ donation.book_title }}</a></td>
+	<td align="center" class='column-emphesis'>{{ donation.book_price }}</td>
+	<td align="center">{{ donation.donated_date }}</a></td>
 </tr>
 {% endfor %}
 </tbody>
