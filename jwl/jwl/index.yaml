@@ -65,3 +65,8 @@ indexes:
   properties:
   - name: __key__
     direction: desc
+
+- kind: books_borrower
+  properties:
+  - name: __key__
+    direction: desc
